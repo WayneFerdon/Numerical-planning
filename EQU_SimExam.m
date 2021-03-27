@@ -45,6 +45,7 @@ minEnhancCount = min(couneData)
 maxEnhancCount = max(couneData)
 
 function [enhanceLevel, enhancCount] = enhance(rateInfo,currentEnhanceLevel,currentCount)
+    preLevel = currentEnhanceLevel;
     if rand(1) <= rateInfo(1) %success
         enhanceLevel = currentEnhanceLevel + 1;
     else
@@ -58,7 +59,7 @@ function [enhanceLevel, enhancCount] = enhance(rateInfo,currentEnhanceLevel,curr
            end
        end
     end
-    enhancCount = currentCount + 1;
+    enhancCount = currentCount + preLevel;
 end
     
  function vip_rate_info = vipRateInfo(rateInfo,levelVipData)
